@@ -1,0 +1,40 @@
+{% extends "home.html" %}
+
+
+{% block body %}
+<center><h1>{{title}}</h1></center>
+
+
+<table>
+    <thead>
+        <tr>
+            <td>S.no</td>
+            <td>Name</td>
+            <td>Class</td>
+            <td>Addredd</td>
+            <td>Branch</td>
+            <td>Email</td>
+        </tr>
+
+    </thead>
+
+    {% for student in query %}
+
+    <tbody>
+        <tr>
+            <td>{{forloop.counter}}</td>
+            <td>{{student.s_name}}</td>
+            <td>{{student.s_current_sem}}</td>
+            <td>{{student.s_address}}</td>
+            <td>{{student.s_branch}}</td>
+            <td>{{student.s_email}}</td>
+
+        </tr>
+
+    </tbody>
+    {% endfor %}
+
+</table>
+            
+
+{% endblock %}

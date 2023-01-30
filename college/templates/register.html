@@ -1,0 +1,25 @@
+{% extends "home.html" %}
+
+
+{% comment %} {% block title %}
+
+<title>Register</title>
+
+
+{% endblock %} {% endcomment %}
+
+
+
+{% block body %}
+<center><h1>{{title}}</h1></center>
+<form method="post"> {% csrf_token %}
+    
+
+    
+        {{form}}
+        <button type="submit">Register</button>
+
+    </form>
+{% endblock  %}
+    
+
