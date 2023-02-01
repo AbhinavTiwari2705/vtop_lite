@@ -10,3 +10,5 @@ class Studentform(forms.Form) :
 
 class Searchstudentform(forms.Form) :
     s_name=forms.CharField(max_length=100)
+
+
