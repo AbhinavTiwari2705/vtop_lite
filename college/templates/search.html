@@ -1,10 +1,12 @@
 {% extends "home.html" %}
 
-
-
 {% block body %}
 
-    {{query}}
-    
+    <!-- {% if len(query)> 0 or query==None %}
+        {% for student in query %}
+            <h1>{{student.s_name}}</h1>
+        {% endfor %}
+    {% else %}
+        <h1>No results found</h1>
+    {% endif %} -->
 {% endblock %}
-    
