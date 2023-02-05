@@ -1,6 +1,7 @@
 from django.shortcuts import render,HttpResponseRedirect
 from .forms import Studentform,Searchstudentform
 from .models import Student
+from django.contrib import messages
 
 # Create your views here.
 
@@ -13,9 +14,15 @@ def search(request):
     print("search")
     search_student = request.GET.get('textfield', None)
     query=Student.objects.filter(s_name=search_student)
-    context={
-        "query": query            
-    }
+    if query is not None:
+
+        context={
+            "query": query            
+        }
+        messages.info(request,"Found this in database!")
+
+    else:
+        messages.info(request,"Search doesnot exists!")
 
     return render(request,'registered.html', context)
 
@@ -45,5 +52,7 @@ def register(request):
         student = Student(**form_cleaned_data)
         student.save()
         title="Student Registered Successfully!"
+
+        messages.info(request,"Registered successfully!")
         
     return render(request, 'register.html',context)
